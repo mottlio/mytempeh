@@ -1,5 +1,26 @@
+// Email obfuscation - assemble email address to prevent spam bot scraping
+function displayEmail() {
+    const user = 'anda.mottl';
+    const domain = 'yahoo';
+    const tld = 'com';
+    const email = user + '@' + domain + '.' + tld;
+
+    const emailContainer = document.getElementById('email-container');
+    if (emailContainer) {
+        const link = document.createElement('a');
+        link.href = 'mailto:' + email;
+        link.textContent = email;
+        link.style.color = '#4a7c59';
+        link.style.textDecoration = 'none';
+        link.style.fontWeight = 'bold';
+        emailContainer.appendChild(link);
+    }
+}
+
 // Language toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Display email
+    displayEmail();
     const langButtons = document.querySelectorAll('.lang-btn');
     const enElements = document.querySelectorAll('.lang-en');
     const plElements = document.querySelectorAll('.lang-pl');
